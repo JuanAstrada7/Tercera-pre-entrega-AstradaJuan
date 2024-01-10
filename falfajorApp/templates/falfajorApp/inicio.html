@@ -1,0 +1,33 @@
+{% extends "falfajorApp/padre.html" %}
+
+{% load static %}
+
+{% block información %}
+
+    <h1>Formulario de Busqueda</h1>
+  
+    <h3>Realizar busqueda ingresando el codigo del Alfajor:</h3>
+
+    <form action="/falfajorApp/buscar/" method="GET">
+
+        <input type="number" name="codigo_alfajor" id="codigo_alfajor">
+
+        <input type="submit" value="Buscar">
+
+    </form>
+
+    {% if cursos %}
+
+    <p>Estamos buscando el: {{codigo_alfajor}}</p>
+
+    <ul>
+	{% for curso in cursos %}
+		<li> {{alfajor.nombre}} </li>
+		<li> {{alfajor.codigo_alfajor}} </li>
+	{% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+{% endblock %}

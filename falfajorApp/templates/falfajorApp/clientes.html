@@ -1,0 +1,27 @@
+{% extends "falfajorApp/padre.html" %}
+
+{% load static %}
+
+{% block información %}
+
+    <h1>Formulario - Agregar Clientes</h1>
+    
+    {% if miForm2.errors %}
+
+    <p style="color: red;"> Están mal los datos, ingresar nuevamente</p>
+
+    {% endif %}
+
+    <form action="" method="POST">{% csrf_token %}
+        
+        <table>
+
+            {{ miForm2.as_table }}
+
+        </table>
+
+        <input type="submit", value="Enviar">
+
+    </form>
+
+{% endblock %}
